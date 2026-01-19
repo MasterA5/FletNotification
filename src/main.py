@@ -1,5 +1,7 @@
 from flet_post_notification import FletNotification
 import flet_permission_handler as fph
+from desktop_notifier import ReplyField
+from desktop_notifier import Button as DesktopButton
 from flet import *
 
 def main(page: Page):
@@ -8,19 +10,29 @@ def main(page: Page):
     ph = fph.PermissionHandler()
     page.overlay.append(ph)
 
-    notification = FletNotification()
+    notification = FletNotification(page)
 
     check_text = Text("Check Notification Permission Status: 'Unknow' ", color=Colors.GREY)
     request_text = Text("Request Notification Permission Status: 'Unknow' ", color=Colors.GREY)
 
     notify_button = ElevatedButton("Send Notification", disabled=True)
 
-    def on_notify_click(e):
+    async def on_notify_click(e):
         title = " DFlet Notification"
         text = " This is a text Notification from ITAcademy"
-        notification.send(title, text, "test-id", "test-name")
+        await notification.send(
+            title, 
+            text, 
+            "test-id", 
+            "test-name",
+            field=ReplyField("Reply", on_replied=lambda e: print(e)),
+            actions=[
+                DesktopButton("Action 1", on_pressed=lambda e: print("Action 1 clicked")),
+                DesktopButton("Action 2", on_pressed=lambda e: print("Action 2 clicked")),
+            ]
+        )
         page.update()
-    
+
     notify_button.on_click = on_notify_click
 
     def check_permission(e):
@@ -56,7 +68,9 @@ def main(page: Page):
                         on_click=request_permission,
                     ),
                     notify_button,
-                ]
+                ],
+                alignment=MainAxisAlignment.CENTER,
+                horizontal_alignment=CrossAxisAlignment.CENTER,
             )
         )
     )
