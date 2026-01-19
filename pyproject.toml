@@ -10,7 +10,8 @@ authors = [
 dependencies = [
   "flet==0.28.3",
   "pyjnius",
-  "flet-permission-handler"
+  "flet-permission-handler",
+  "desktop-notifier"
 ]
 
 [tool.flet]
