@@ -4,6 +4,16 @@ A Flet Extension that demonstrates how to manage and send notifications on Andro
 
 ## [Credits To: @ITAkademi](https://www.youtube.com/@ITAkademi)
 
+## Supported On
+
+| Platform | Status |
+|----------|--------|
+| Android  | ✅     |
+| iOS      | ⏳     Can't test|
+| Windows  | ✅     |
+| macOS    | ⏳     Can't test|
+| Linux    | ✅     |
+
 ## Features
 
 - **Permission Management**: Check and request notification permissions
