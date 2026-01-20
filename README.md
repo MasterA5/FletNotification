@@ -1,6 +1,6 @@
 # Flet Notification
 
-A Flet Extension that demonstrates how to manage and send notifications on Android devices (for now). This project provides a simple interface for requesting notification permissions and sending them using Android's native APIs, with the intention of adding more platforms to the project in the future.
+A Flet Extension that demonstrates how to manage and send notifications on Android Windows and Linux devices (for now) . This project provides a simple interface for requesting notification permissions and sending them using Android's native APIs, with the intention of adding more platforms to the project in the future.
 
 ## [Credits To: @ITAkademi](https://www.youtube.com/@ITAkademi)
 
@@ -103,11 +103,10 @@ The app requests the following permissions (configured in `pyproject.toml`):
 - Implement notification groups and categories
 - Add support for notification actions and buttons
 - Improve notification styling and customization
-- Add support for more platform-specific features (iOS, Windows, etc.)
+✅ Add support for more platform-specific features (iOS, Windows, etc.)
 
 ## Notes
 
-- This application is specifically designed for Android devices
 - Notification functionality requires proper permissions to be granted by the user
 - The app uses native Android APIs for reliable notification delivery
 
