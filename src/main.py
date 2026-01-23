@@ -18,8 +18,8 @@ def main(page: Page):
     notify_button = ElevatedButton("Send Notification", disabled=True)
 
     async def on_notify_click(e):
-        title = " DFlet Notification"
-        text = " This is a text Notification from ITAcademy"
+        title = " Flet Notification"
+        text = " This is a text Notification"
         await notification.send(
             title, 
             text, 
