@@ -1,5 +1,4 @@
-from pathlib import Path
-from desktop_notifier import DesktopNotifier, ReplyField, Urgency, Icon
+from desktop_notifier import DesktopNotifier, ReplyField, Urgency
 import desktop_notifier as dn
 from typing import Sequence, Union, Callable 
 from flet import PagePlatform, Page
@@ -36,12 +35,6 @@ class FletNotification:
         ): # If the platform is desktop call the desktop notification function
             await self._desktop(title, text, importance, field, actions)
 
-    def _get_desktop_icon(self):
-        _icon_path = Path(os.getcwd(), "assets", "icon.png")
-        if _icon_path.exists():
-            return _icon_path
-        return Path(os.getcwd(), "src", "assets", "icon.png")
-
     async def _desktop(
         self, 
         title, 
@@ -63,7 +56,6 @@ class FletNotification:
             on_dispatched=on_dispatched,
             on_clicked=on_clicked,
             on_dismissed=on_dismissed,
-            icon=Icon(self._get_desktop_icon())
         )
 
     def _android(self, title, text, channel_id: str, channel_name: str, importance: str):
