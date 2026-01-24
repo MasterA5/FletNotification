@@ -11,7 +11,8 @@ dependencies = [
   "flet==0.28.3",
   "pyjnius",
   "flet-permission-handler",
-  "desktop-notifier"
+  "android-notify==1.60.4.dev0",
+  "desktop-notifier",
 ]
 
 [tool.flet]
