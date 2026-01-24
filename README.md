@@ -72,11 +72,27 @@ permissions = [
 ```
 
 ### ⚠️ Important
-For Android SDK > 35, you must manually add the permission to ```AndroidManifest.xml``` in your build project 
+For Android SDK > 35, you must manually add the permission to ```AndroidManifest.xml``` in your build project or you can use my custom build template 
 
-## Example
+## Example 1
+Add Permission Manually in ```AndroidManifest.xml```
 ```xml
 <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+```
+
+## Example 2
+Use My Custom Template For Build
+
+# 📄 Toml
+```toml
+[tool.flet.template]
+path = "gh:MasterA5/flet-build-template" # --template
+ref = "0.28.3" # --template-ref
+```
+
+# 💻 Terminal
+```bash
+flet build apk --template "gh:MasterA5/flet-build-template" --template-ref "0.28.3"
 ```
 
 ---
