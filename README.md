@@ -27,6 +27,7 @@ A Flet Extension that demonstrates how to manage and send notifications on Andro
 - Flet framework
 - Android device or emulator for testing
 - Required permissions configured in `pyproject.toml`
+- Support for android 16 (API 36)
 
 ## Installation
 
@@ -42,6 +43,43 @@ cd FletNotification
 ```bash
 flet run
 ```
+
+## Build app
+```bash
+flet build apk
+```
+
+## ⚙️ Pyproject Config
+```toml
+[tool.flet]
+
+# Permissions For The App
+permissions = [
+  "notification",
+  "access_notification_policy",
+  "post_notifications",
+  "wake_lock",
+  "foreground_service"
+]
+
+[tool.flet.android.permissions]
+"android.permission.ACCESS_NOTIFICATION" = true
+"android.permission.POST_NOTIFICATIONS" = true
+"android.permission.WAKE_LOCK" = true
+"android.permission.FOREGROUND_SERVICE" = true
+"android.permission.INTERNET" = true
+"android.permission.RECEIVE_BOOT_COMPLETED" = true
+```
+
+### ⚠️ Important
+For Android SDK > 35, you must manually add the permission to ```AndroidManifest.xml``` in your build project 
+
+## Example
+```xml
+<uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+```
+
+---
 
 ### Application Interface
 
@@ -109,7 +147,6 @@ The app requests the following permissions (configured in `pyproject.toml`):
 
 - Notification functionality requires proper permissions to be granted by the user
 - The app uses native Android APIs for reliable notification delivery
-- Temporally Don't Work in Android SDK 36 (Android 16)
 
 ## Contributing
 
