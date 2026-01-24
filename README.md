@@ -103,12 +103,13 @@ The app requests the following permissions (configured in `pyproject.toml`):
 - Implement notification groups and categories
 - Add support for notification actions and buttons
 - Improve notification styling and customization
-✅ Add support for more platform-specific features (iOS, Windows, etc.)
+- ✅ Add support for more platform-specific features (iOS, Windows, etc.)
 
 ## Notes
 
 - Notification functionality requires proper permissions to be granted by the user
 - The app uses native Android APIs for reliable notification delivery
+- Temporally Don't Work in Android SDK 36 (Android 16)
 
 ## Contributing
 
