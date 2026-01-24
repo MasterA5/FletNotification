@@ -1,7 +1,7 @@
 from desktop_notifier import DesktopNotifier, ReplyField, Urgency
 import desktop_notifier as dn
 from typing import Sequence, Union, Callable 
-from flet import PagePlatform, Page
+from flet import PagePlatform, Page, Text
 from jnius import autoclass
 import os
 
@@ -12,7 +12,29 @@ class FletNotification:
         # Validate page parameter
         if not self.page:
             raise ValueError("Page is required")
+        
+        if self.page.platform == PagePlatform.ANDROID:
+            self.request_permission()
 
+    def request_permission(self):
+        activity_host_class = os.getenv("MAIN_ACTIVITY_HOST_CLASS_NAME")
+        activity = autoclass(activity_host_class).mActivity
+
+        BuildVersion = autoclass('android.os.Build$VERSION')
+        ManifestPermission = autoclass('android.Manifest$permission')
+        
+        ContextCompat = autoclass('androidx.core.content.ContextCompat')
+        ActivityCompat = autoclass('androidx.core.app.ActivityCompat')
+        PackageManager = autoclass('android.content.pm.PackageManager')
+
+        if BuildVersion.SDK_INT >= 33:
+            permission = ManifestPermission.POST_NOTIFICATIONS
+            
+            check = ContextCompat.checkSelfPermission(activity, permission)
+            
+            if check != PackageManager.PERMISSION_GRANTED:
+                ActivityCompat.requestPermissions(activity, [permission], 101)
+    
     async def send(
         self, 
         title, 
