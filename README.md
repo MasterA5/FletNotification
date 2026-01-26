@@ -120,6 +120,8 @@ The app provides the following functionality:
 
 ```
 FletNotification/
+├── scripts/
+│   └── fix_manifest.py  # Script to fix AndroidManifest.xml
 ├── src/
 │   ├── main.py                    # Main application entry point
 │   └── flet_post_notification.py  # Notification handling class
