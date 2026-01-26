@@ -153,6 +153,7 @@ Located in `src/main.py`, this provides:
 - `flet==0.28.3`: Main UI framework
 - `pyjnius`: Python-Java bridge for Android integration
 - `flet-permission-handler`: Flet plugin for handling permissions
+- `desktop-notifier`: Pacakge to send desktop notifications
 
 ## Android Permissions
 
