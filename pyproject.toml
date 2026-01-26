@@ -46,6 +46,10 @@ copyright = "Copyright (C) 2025 by Flet"
 "android.permission.INTERNET" = true
 "android.permission.RECEIVE_BOOT_COMPLETED" = true
 
+[tool.flet.template]
+url = "gh:MasterA5/flet-build-template"
+ref = "0.28.3"
+
 [tool.flet.app]
 path = "src"
 
