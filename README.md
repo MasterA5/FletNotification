@@ -97,6 +97,17 @@ flet build apk --template "gh:MasterA5/flet-build-template" --template-ref "0.28
 
 ---
 
+## Example 3
+Automatically patch AndroidManifest.xml after build (recommended)
+
+If you are using Android SDK > 35 and prefer not to manually edit the manifest or rely on a custom build template, you can use the provided helper script.
+
+### 💻 Terminal
+```bash
+flet build apk
+python scripts/fix_manifest.py
+```
+
 ### Application Interface
 
 The app provides the following functionality:
